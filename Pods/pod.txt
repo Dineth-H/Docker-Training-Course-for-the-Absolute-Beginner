@@ -1,0 +1,31 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+    type: front-end
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+```
+
+```bash
+# Create pod
+kubectl create -f pod.yaml
+
+# Get pod
+kubectl get pods
+
+# Get pod details
+kubectl describe pod myapp-pod
+
+# Delete pod
+kubectl delete pod myapp-pod
+```
+
+### Pod with multiple containers
+```bash
+# Path: pod-multi-container.yaml

@@ -1,0 +1,25 @@
+apiVersion = v1
+kind: pod
+metadata:
+  name: postgres-app-pod
+spec:
+    containers:
+    - name: postgres-app
+        image: dockersamples/examplepostgresapp_postgres:v1
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_PASSWORD
+            value: "postgres"
+        - name: POSTGRES_USER           
+            value: "postgres"   
+        - name: POSTGRES_DB
+            value: "postgres"
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: postgres-app-persistent-storage
+    volumes:
+    - name: postgres-app-persistent-storage
+      persistentVolumeClaim:
+        claimName: postgres-app-pvc
+``` 

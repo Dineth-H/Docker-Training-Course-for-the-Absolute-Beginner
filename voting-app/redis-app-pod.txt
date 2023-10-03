@@ -1,0 +1,10 @@
+apiVersion = v1
+kind: pod
+metadata:
+  name: redis-app-pod
+spec:
+    containers:
+    - name: redis-app
+        image: dockersamples/exampleresultapp_redis:v1
+        ports:
+        - containerPort: 80

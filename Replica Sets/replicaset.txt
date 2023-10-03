@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: myapp
+spec:
+  selector: # this is the selector for the pods
+    matchLabels:
+          env: production   # this is the label for the pods
+          labels:
+            app: myapp
+    replicas: 3
+    template:
+      metadata:
+        name: nginx-2
+        labels:
+          env: production   # this is the label for the pods
+          labels:
+            app: myapp
+      spec:
+        containers:
+        - name: nginx
+          image: nginx
+          command: ['sh', '-c', 'echo Hello Kubernetes! && sleep 3600'] # the command you want to run
+``` 

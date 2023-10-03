@@ -1,0 +1,16 @@
+apiVersion = v1
+kind: service
+metadata:
+  name: worker-service-pod
+    labels:
+        service: worker-service
+        version: v1
+        name: worker-service
+spec:
+    containers:
+    - name: worker-service
+        image: dockersamples/exampleworkerapp_worker:v1
+        ports:
+        - containerPort: 80
+
+```
